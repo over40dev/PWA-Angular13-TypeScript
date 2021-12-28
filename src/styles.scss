@@ -12,15 +12,89 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$kanban-primary: mat.define-palette(mat.$indigo-palette);
-$kanban-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// custom color
+/* For use in src/lib/core/theming/_palette.scss */
+$md-cxblue: (
+    50 : #f4f9fd,
+    100 : #e4eff9,
+    200 : #d3e5f6,
+    300 : #c1daf2,
+    400 : #b3d2ef,
+    500 : #a6caec,
+    600 : #9ec5ea,
+    700 : #95bde7,
+    800 : #8bb7e4,
+    900 : #7babdf,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #fcfdff,
+    A700 : #e2f0ff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+/* For use in src/lib/core/theming/_palette.scss */
+$md-cxgreen: (
+    50 : #e0f6e0,
+    100 : #b3e9b3,
+    200 : #80da80,
+    300 : #4dcb4d,
+    400 : #26bf26,
+    500 : #00b400,
+    600 : #00ad00,
+    700 : #00a400,
+    800 : #009c00,
+    900 : #008c00,
+    A100 : #b8ffb8,
+    A200 : #85ff85,
+    A400 : #52ff52,
+    A700 : #39ff39,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+
+
+
+$kanban-primary: mat.define-palette($md-cxblue);
+$kanban-accent: mat.define-palette($md-cxgreen, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
 $kanban-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$kanban-theme: mat.define-light-theme((
+// $kanban-theme: mat.define-light-theme((
+$kanban-theme: mat.define-dark-theme((
   color: (
     primary: $kanban-primary,
     accent: $kanban-accent,
@@ -35,5 +109,5 @@ $kanban-theme: mat.define-light-theme((
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
+html, body { height: 100vh; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
