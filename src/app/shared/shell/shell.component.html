@@ -1,26 +1,30 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer fixedInViewport
-    [attr.role]="(isHandset$ | async) ? 'dialog': 'navigation'"
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'"
-    [opened]="false">
+    [opened]="false"
+  >
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item>Home</a>
-      <a mat-list-item>Login</a>
-      <a mat-list-item>Kanban</a>
-      <a mat-list-item>SSR</a>
+      <a mat-list-item (click)="drawer.close()">Home</a>
+      <a mat-list-item (click)="drawer.close()">Login</a>
+      <a mat-list-item (click)="drawer.close()">Kanban</a>
+      <a mat-list-item (click)="drawer.close()">SSR</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar>
-      <button type="button"
+      <button
+        type="button"
         aria-label="toggle side nav"
         mat-icon-button
         (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
+        *ngIf="isHandset$ | async"
+      >
         <mat-icon aria-label="side nav toggle icon">menu</mat-icon>
-
-
       </button>
       <span class="logo">🔥 Over40dev</span>
       <span class="fill-space"></span>
@@ -38,7 +42,10 @@
           <i>💬</i>
           <span>Chat on Slack</span>
         </a>
-        <a mat-menu-item href="https://github.com/codediodeio/angular-firestarter">
+        <a
+          mat-menu-item
+          href="https://github.com/codediodeio/angular-firestarter"
+        >
           <i>💾</i>
           <span>Code on Github</span>
         </a>
@@ -47,7 +54,10 @@
           <span>Full Course on Fireship</span>
         </a>
 
-        <a mat-menu-item href="https://www.youtube.com/channel/UCsBjURrPoezykLs9EqgamOA">
+        <a
+          mat-menu-item
+          href="https://www.youtube.com/channel/UCsBjURrPoezykLs9EqgamOA"
+        >
           <i>📺</i>
           <span>Watch on the YouTube</span>
         </a>
@@ -56,5 +66,3 @@
     <ng-content></ng-content>
   </mat-sidenav-content>
 </mat-sidenav-container>
-
-
