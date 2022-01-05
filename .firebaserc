@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angular-pwa-kanban": {
+      "hosting": {
+        "kanban": [
+          "angular-pwa-kanban"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angular-pwa-kanban"
+  }
+}
