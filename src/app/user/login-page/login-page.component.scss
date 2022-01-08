@@ -1,0 +1,22 @@
+button {
+    svg {
+        width: 1.25em;
+    }
+    span {
+        padding-left: 10px;
+    }
+}
+
+.login-btn {
+    display: flex;
+    // align-items: center;
+    // justify-content: space-around;
+}
+
+:host {
+    text-align: center;
+}
+
+.logout {
+    padding-top: 5em;
+}

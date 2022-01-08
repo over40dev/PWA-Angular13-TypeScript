@@ -1,0 +1,35 @@
+{
+  "workbench.colorCustomizations": {
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveForeground": "#e7e7e799",
+    "titleBar.activeBackground": "#160517",
+    "titleBar.inactiveBackground": "#16051799",
+    "activityBar.activeBackground": "#3e0e41",
+    "activityBar.activeBorder": "#696417",
+    "activityBar.background": "#3e0e41",
+    "activityBar.foreground": "#e7e7e7",
+    "activityBar.inactiveForeground": "#e7e7e799",
+    "activityBarBadge.background": "#696417",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "statusBar.background": "#160517",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#3e0e41",
+    "sash.hoverBorder": "#3e0e41",
+    "statusBarItem.remoteBackground": "#160517",
+    "statusBarItem.remoteForeground": "#e7e7e7"
+  },
+  // These are all my auto-save configs
+  "editor.formatOnSave": true,
+  // turn it off for JS and JSX, we will do this via eslint
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  "[javascriptreact]": {
+    "editor.formatOnSave": false
+  },
+  // tell the ESLint plugin to run on save
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "peacock.color": "#160517"
+}
