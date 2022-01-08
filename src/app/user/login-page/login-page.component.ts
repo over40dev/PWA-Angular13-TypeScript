@@ -16,7 +16,7 @@ export class LoginPageComponent {
 
   public readonly user: Observable<User | null> = EMPTY;
 
-  // user 'public' because 'afAuth' needed outside this class (i.e. in associated html template)
+  // user 'public' because 'auth' needed outside this class (i.e. in associated html template)
   constructor(public readonly auth: Auth) { 
     if (auth) {
       this.user = authState(this.auth);

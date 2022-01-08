@@ -1,5 +1,5 @@
 <main style="padding-top: 10px">
-    <!-- 'afAuth' is an Observable so unwrap with 'async' pipe -->
+    <!-- 'user' is an Observable so unwrap with 'async' pipe -->
     <div *ngIf="!(user | async)">
         <h1>Login</h1>
         <button mat-raised-button appGoogleSignin>
