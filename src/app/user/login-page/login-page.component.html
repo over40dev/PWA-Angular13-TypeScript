@@ -1,6 +1,6 @@
 <main style="padding-top: 10px">
     <!-- 'afAuth' is an Observable so unwrap with 'async' pipe -->
-    <div *ngIf="!(afAuth.authState | async)">
+    <div *ngIf="!(user | async)">
         <h1>Login</h1>
         <button mat-raised-button appGoogleSignin>
             <!-- <img src="/assets/google-logo.svg" alt="Google Logo"> Login with Google -->
@@ -11,10 +11,10 @@
         </button>
     </div>
 
-    <div *ngIf="afAuth.authState | async as user" class="logout">
+    <div *ngIf="user | async as user" class="logout">
         <p>
-            Logged in as <strong>{{user.email}}</strong>
+            Logged in as <strong>{{user?.email}}</strong>
         </p>
-        <button mat-stroked-button (click)="afAuth.signOut()">Logout</button>
+        <button mat-stroked-button (click)="logout()">Logout</button>
     </div>
 </main>

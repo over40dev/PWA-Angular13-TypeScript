@@ -14,7 +14,7 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 // AngularFire and Firebase compatibility with pre-Firebase v9
 import {AngularFireModule} from '@angular/fire/compat';
 import { AngularFirestoreModule } from "@angular/fire/compat/firestore";
-import { AngularFireAuthModule } from "@angular/fire/compat/auth";
+// import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 
 
 @NgModule({
@@ -34,7 +34,7 @@ import { AngularFireAuthModule } from "@angular/fire/compat/auth";
     // AngularFire and Firebase compatibility with pre-Firebase v9
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    AngularFireAuthModule,
+    // AngularFireAuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

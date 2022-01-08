@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { EMPTY, Observable } from 'rxjs';
+// AngularFire and Firebase v9
+import { Auth, authState, signOut, User } from "@angular/fire/auth";
 // AngularFire and Firebase compatibility with pre-Firebase v9
-import { AngularFireAuth } from "@angular/fire/compat/auth";
+// import { AngularFireAuth } from "@angular/fire/compat/auth";
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 
@@ -11,7 +14,17 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 })
 export class LoginPageComponent {
 
+  public readonly user: Observable<User | null> = EMPTY;
+
   // user 'public' because 'afAuth' needed outside this class (i.e. in associated html template)
-  constructor(public readonly afAuth: AngularFireAuth) { }
+  constructor(public readonly auth: Auth) { 
+    if (auth) {
+      this.user = authState(this.auth);
+    }
+  }
+
+  async logout() {
+    return await signOut(this.auth);
+  }
 
 }
