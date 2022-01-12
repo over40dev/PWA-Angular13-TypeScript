@@ -6,10 +6,13 @@ import { MatButtonToggleModule } from "@angular/material/button-toggle";
 import { MatDialogModule } from "@angular/material/dialog";
 import { KanbanRoutingModule } from './kanban-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { BoardListComponent } from './board-list/board-list.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    BoardListComponent
+  ],
   imports: [
     CommonModule,
     KanbanRoutingModule,
