@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Auth } from '@angular/fire/auth';
+import { Auth, 
+  signInWithEmailAndPassword, 
+  createUserWithEmailAndPassword,
+  sendPasswordResetEmail } from '@angular/fire/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 type FormType = 'login' | 'signup' | 'reset';
@@ -23,12 +26,11 @@ export class EmailLoginComponent implements OnInit {
       // [default value, array of Validators]
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
-      passwordConfim: ['', []],
+      passwordConfirm: ['', []],
     });
   }
 
   ngOnInit(): void {
-    console.log('type: ', this.type);
   }
 
   // Form Type
@@ -66,11 +68,9 @@ export class EmailLoginComponent implements OnInit {
     if (this.type !== 'signup') {
       return true;
     } else {
-
       return this.password?.value === this.passwordConfirm?.value;
     }
   }
-
 
   // Form Submit
   async onSubmit() {
@@ -80,16 +80,18 @@ export class EmailLoginComponent implements OnInit {
     const password = this.password?.value;
 
     try {
-
-
+      if (this.isLogin) {
+        await signInWithEmailAndPassword(this.auth, email, password);
+      } else if(this.isSignup) {
+        await createUserWithEmailAndPassword(this.auth, email, password);
+      } else if(this.isPasswordReset) {
+        await sendPasswordResetEmail(this.auth, email);
+        this.serverMessage = 'Check your email for reset link';
+      }
     } catch (err) {
-
+      this.serverMessage = err as string;
     }
-
 
     this.loading = false;
   }
-
-
-
 }

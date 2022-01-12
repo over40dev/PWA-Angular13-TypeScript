@@ -16,13 +16,7 @@
 
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <mat-form-field [color]="email?.valid && 'accent'">
-            <input
-                matInput
-                formControlName="email"
-                type="email"
-                placeholder="Email"
-                autocomplete="off"
-            />
+            <input matInput formControlName="email" type="email" placeholder="Email" autocomplete="off" />
             <!-- dirty... user typing -->
             <mat-error *ngIf="email?.invalid && email?.dirty">
                 You must enter a valid email address
@@ -30,29 +24,16 @@
         </mat-form-field>
 
         <mat-form-field [color]="password?.valid && 'accent'" *ngIf="!isPasswordReset">
-            <input
-                matInput
-                formControlName="password"
-                type="password"
-                placeholder="Password"
-                autocomplete="off"
-            />
+            <input matInput formControlName="password" type="password" placeholder="Password" autocomplete="off" />
             <!-- dirty... user typing -->
             <mat-error *ngIf="password?.invalid && password?.dirty">
                 Password must be at least 8 characters long
             </mat-error>
         </mat-form-field>
 
-        <mat-form-field 
-            [color]="passwordDoesMatch ? 'accent' : 'warn'"
-            *ngIf="isSignup">
-            <input
-                matInput
-                formControlname="passwordConfirm"
-                type="password"
-                placeholder="Confirm Password"
-                autocomplete="off"
-            >
+        <mat-form-field [color]="passwordDoesMatch ? 'accent' : 'warn'" *ngIf="isSignup">
+            <input matInput formControlName="passwordConfirm" type="password" placeholder="Confirm Password"
+                autocomplete="off">
 
             <mat-error *ngIf="passwordConfirm?.dirty && !passwordDoesMatch">
                 Password does not match
@@ -61,32 +42,17 @@
 
         <mat-error class="server-error">{{serverMessage}}</mat-error>
 
-        <button
-            *ngIf="!isPasswordReset"
-            mat-raised-button
-            color="accent"
-            type="submit"
-            [disabled]="form.invalid || !passwordDoesMatch || loading"
-        >
+        <button *ngIf="!isPasswordReset" mat-raised-button color="accent" type="submit"
+            [disabled]="form.invalid || !passwordDoesMatch || loading">
             Submit
         </button>
 
-        <button 
-            *ngIf="isLogin && !isPasswordReset"
-            mat-button
-            (click)="changeType('reset')"
-        >
+        <button *ngIf="isLogin && !isPasswordReset" mat-button (click)="changeType('reset')">
             Forgot Password?
         </button>
-        
-        <button 
-            *ngIf="isPasswordReset"
-            mat-stroked-button
-            type="submit"
-            [disabled]="loading"
-        >
+
+        <button *ngIf="isPasswordReset" mat-stroked-button type="submit" [disabled]="loading">
             Send Reset Email
         </button>
     </form>
 </mat-card>
-
