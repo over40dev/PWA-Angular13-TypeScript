@@ -36,15 +36,15 @@ export class EmailLoginComponent implements OnInit {
     this.type = val;
   }
 
-  isLogin() {
+  get isLogin() {
     return this.type === 'login';
   }
 
-  isSignup() {
+  get isSignup() {
     return this.type === 'signup';
   }
 
-  isPasswordReset() {
+  get isPasswordReset() {
     return this.type === 'reset';
   }
 
