@@ -31,5 +31,6 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": true
   },
-  "peacock.color": "#160517"
+  "peacock.color": "#160517",
+  "editor.minimap.enabled": false,
 }

@@ -80,7 +80,7 @@ export class BoardService {
 
   /**
    * Get all boards owned by current user
-   * @returns 
+   * @returns Observable<Boards>
    */
   getUserBoards() {
     return authState(this.auth)
