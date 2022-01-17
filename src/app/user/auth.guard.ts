@@ -1,8 +1,6 @@
-import { ThrowStmt } from '@angular/compiler';
 import { Injectable, OnDestroy } from '@angular/core';
-import { Auth, authState, onAuthStateChanged, User } from '@angular/fire/auth';
+import { Auth } from '@angular/fire/auth';
 import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot } from '@angular/router';
-import { Subscription } from 'rxjs';
 import { SnackService } from '../services/snack.service';
 
 @Injectable({
