@@ -8,12 +8,14 @@ import { KanbanRoutingModule } from './kanban-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { BoardListComponent } from './board-list/board-list.component';
 import { BoardComponent } from './board/board.component';
+import { BoardDialogComponent } from './dialogs/board-dialog.component';
 
 
 @NgModule({
   declarations: [
     BoardListComponent,
-    BoardComponent
+    BoardComponent,
+    BoardDialogComponent
   ],
   imports: [
     CommonModule,
