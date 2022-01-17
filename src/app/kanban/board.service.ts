@@ -27,15 +27,16 @@ export class BoardService {
    */
   async createBoard(data: Board) {
     const user = await this.auth.currentUser;
+    // TODO: Protect against User being logged out after 'auth guard' protection. If User becomes logged out the 'user' will be 'null' and Firebase will return an error crashing app
     return this.db.collection('boards').add({
       ...data,
       uid: user?.uid,
       tasks: [
         {
           description: 'Hello',
-          label: 'yellow'
-        }
-      ]
+          label: 'yellow',
+        },
+      ],
     });
   }
 
@@ -54,7 +55,7 @@ export class BoardService {
    * Updates the tasks on a board
    * @param boardId : string
    * @param tasks : Task[]
-   * @returns 
+   * @returns
    */
   updateTasks(boardId:string, tasks:Task[]) {
     return this.db
@@ -67,7 +68,7 @@ export class BoardService {
    * Remove a specific task from the board
    * @param boardId : string
    * @param task : Task
-   * @returns 
+   * @returns
    */
   removeTask(boardId: string, task: Task) {
     return this.db
@@ -89,7 +90,7 @@ export class BoardService {
         switchMap(user => {
           if (user) {
             return this.db
-              .collection<Board>('boards', ref => 
+              .collection<Board>('boards', ref =>
                 ref.where('uid','==',user.uid)
                 .orderBy('priority')
               )
