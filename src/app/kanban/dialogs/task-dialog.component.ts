@@ -1,5 +1,6 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, Output, EventEmitter } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { BoardService } from '../board.service';
 
 @Component({
   selector: 'app-task-dialog',
@@ -18,7 +19,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
         #group="matButtonToggleGroup"
         [(ngModel)]="data.task.label"
       >
-        <mat-button-toggle *ngFor="let opt of labelOptions" [value]="opt" ]>
+        <mat-button-toggle *ngFor="let opt of labelOptions" [value]="opt">
           <mat-icon [ngClass]="opt">{{
             opt === 'gray' ? 'check_circle' : 'lens'
           }}</mat-icon>
@@ -30,6 +31,8 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
       <button mat-button [mat-dialog-close]="data" cdkFocusInitial>
         {{ data.isNew ? 'Add Task' : 'Update Task' }}
       </button>
+      <app-delete-button *ngIf="!data.isNew" (delete)="deleteTask()">
+      </app-delete-button>
     </div>
   `,
   styles: [],
@@ -37,12 +40,19 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class TaskDialogComponent {
   labelOptions = ['purple', 'blue', 'green', 'yellow', 'red', 'gray'];
 
+  @Output() delete = new EventEmitter<boolean>();
+
   constructor(
     public dialogRef: MatDialogRef<TaskDialogComponent>,
+    private boardService: BoardService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
   onNoClick() {
     this.dialogRef.close();
+  }
+
+  deleteTask() {
+    this.boardService.removeTask(this.data.boardId, this.data.task);
   }
 }
