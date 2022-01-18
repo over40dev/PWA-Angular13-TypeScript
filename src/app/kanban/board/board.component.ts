@@ -52,4 +52,12 @@ export class BoardComponent implements OnInit {
       }
     });
   }
+
+  deleteBoard() {
+    const { id } = this.board;
+
+    if (id) {
+      this.boardService.deleteBoard(id);
+    }
+  }
 }

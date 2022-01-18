@@ -16,9 +16,7 @@ import { ShellComponent } from './shell/shell.component';
 import { RouterModule } from '@angular/router';
 import { DeleteButtonComponent } from './delete-button/delete-button.component';
 
-const components = [
-  ShellComponent,
-];
+const components = [ShellComponent, DeleteButtonComponent];
 
 const modules = [
   CommonModule,
@@ -37,16 +35,8 @@ const modules = [
 ];
 
 @NgModule({
-  declarations: [
-    ...components,
-    DeleteButtonComponent,
-  ],
-  imports: [
-    ...modules,
-  ],
-  exports: [
-    ...components,
-    ...modules,
-  ]
+  declarations: [...components, DeleteButtonComponent],
+  imports: [...modules],
+  exports: [...components, ...modules],
 })
-export class SharedModule { }
+export class SharedModule {}
