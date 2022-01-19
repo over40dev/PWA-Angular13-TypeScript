@@ -35,7 +35,7 @@ import { BoardService } from '../board.service';
       </app-delete-button>
     </div>
   `,
-  styles: [],
+  styleUrls: ['./dialog.scss'],
 })
 export class TaskDialogComponent {
   labelOptions = ['purple', 'blue', 'green', 'yellow', 'red', 'gray'];
